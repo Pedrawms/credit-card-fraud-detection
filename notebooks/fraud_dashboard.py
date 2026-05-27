@@ -49,8 +49,8 @@ models, scaler = load_models_and_scaler()
 # ==================================================
 @st.cache_data
 def load_test_data():
-    X_test_scaled = joblib.load("X_test_scaled.pkl")
-    y_test = joblib.load("y_test.pkl")
+    X_test_scaled = joblib.load(os.path.join(current_dir, "X_test_scaled.pkl"))
+    y_test = joblib.load(os.path.join(current_dir, "y_test.pkl"))
     return X_test_scaled, y_test
 
 # ==================================================
