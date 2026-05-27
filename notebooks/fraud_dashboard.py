@@ -28,16 +28,17 @@ st.caption("Comparative Analysis of Machine Learning Models for Fraud Detection"
 # ==================================================
 # LOAD MODELS & SCALER
 # ==================================================
+current_dir = os.path.dirname(os.path.abspath(__file__))
 @st.cache_resource
 def load_models_and_scaler():
     models = {
-        "Logistic Regression": joblib.load("logistic_model.pkl"),
-        "Decision Tree": joblib.load("dt_model.pkl"),
-        "Random Forest": joblib.load("rf_model.pkl"),
-        "SVM": joblib.load("svm_model.pkl"),
-        "XGBoost": joblib.load("xgb_model.pkl"),
+        "Logistic Regression": joblib.load(os.path.join(current_dir, "logistic_model.pkl")),
+        "Decision Tree": joblib.load(os.path.join(current_dir, "dt_model.pkl")),
+        "Random Forest": joblib.load(os.path.join(current_dir, "rf_model.pkl")),
+        "SVM": joblib.load(os.path.join(current_dir, "svm_model.pkl")),
+        "XGBoost": joblib.load(os.path.join(current_dir, "xgb_model.pkl")),
     }
-    scaler = joblib.load("scaler.pkl")
+    scaler = joblib.load(os.path.join(current_dir, "scaler.pkl"))
     return models, scaler
 
 models, scaler = load_models_and_scaler()
